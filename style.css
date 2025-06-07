@@ -1,0 +1,187 @@
+/* Importa la fuente Inter de Google Fonts para un diseño moderno */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif; /* Aplica la fuente Inter */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Altura mínima de la ventana para centrar */
+    background-color: #f0f2f5; /* Color de fondo suave */
+    color: #333; /* Color de texto general */
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 400px; /* Ancho máximo similar a una aplicación móvil */
+    height: 90vh; /* Altura para una experiencia de chat inmersiva */
+    background-color: #fff;
+    border-radius: 15px; /* Bordes redondeados para todo el contenedor */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Asegura que el contenido no se salga */
+}
+
+.chat-header {
+    background-color: #f7f9fa; /* Fondo del encabezado, un gris muy claro */
+    padding: 15px 20px; /* Espaciado interno */
+    border-bottom: 1px solid #eee; /* Línea separadora */
+    display: flex;
+    align-items: center;
+}
+
+.bot-info {
+    display: flex;
+    align-items: center;
+}
+
+.bot-avatar {
+    width: 45px; /* Tamaño del avatar */
+    height: 45px;
+    background-color: #007bff; /* Azul vibrante para el círculo NS */
+    color: #fff;
+    border-radius: 50%; /* Completamente redondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600; /* Negrita para el texto NS */
+    font-size: 1.3em;
+    margin-right: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Pequeña sombra para el avatar */
+}
+
+.bot-name {
+    font-weight: 600; /* Negrita para "Nova Salud" */
+    color: #333;
+    font-size: 1.1em;
+}
+
+.bot-role {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 2px;
+}
+
+.chat-messages {
+    flex-grow: 1; /* Permite que el área de mensajes ocupe el espacio restante */
+    padding: 15px;
+    overflow-y: auto; /* Habilita el scroll vertical */
+    background-color: #e5ddd5; /* Color de fondo tipo WhatsApp */
+    display: flex; /* Usamos flexbox para alinear los mensajes */
+    flex-direction: column; /* Apila los mensajes verticalmente */
+}
+
+.message-bubble {
+    padding: 10px 14px;
+    border-radius: 18px; /* Bordes redondeados para las burbujas */
+    max-width: 85%; /* Ancho máximo de la burbuja */
+    margin-bottom: 8px; /* Espacio entre burbujas */
+    position: relative;
+    word-wrap: break-word; /* Rompe palabras largas para evitar desbordamiento */
+    font-size: 0.95em;
+    line-height: 1.4;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); /* Sombra sutil para las burbujas */
+}
+
+/* Estilo para los mensajes del bot (gris claro, alineado a la izquierda) */
+.bot-message {
+    background-color: #e0e0e0;
+    align-self: flex-start; /* Alineado a la izquierda */
+}
+
+.bot-message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -7px; /* Posiciona la cola en la esquina superior izquierda */
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 8px solid #e0e0e0; /* Color de la burbuja */
+    border-bottom: 8px solid transparent;
+}
+
+/* Estilo para los mensajes del usuario (verde claro, alineado a la derecha) */
+.user-message {
+    background-color: #dcf8c6; /* Un verde claro similar a WhatsApp */
+    align-self: flex-end; /* Alineado a la derecha */
+    margin-left: auto; /* Empuja el mensaje a la derecha */
+}
+
+.user-message::after { /* Usamos ::after para la cola del mensaje de usuario */
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -7px; /* Posiciona la cola en la esquina superior derecha */
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-left: 8px solid #dcf8c6; /* Color de la burbuja */
+    border-bottom: 8px solid transparent;
+}
+
+
+.chat-input-area {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    background-color: #f7f9fa; /* Fondo del área de input */
+    align-items: center; /* Alinea verticalmente el input y el botón */
+}
+
+#user-input {
+    flex-grow: 1; /* Permite que el input ocupe el espacio disponible */
+    border: 1px solid #ddd; /* Borde suave */
+    border-radius: 25px; /* Más redondeado para parecerse a la imagen */
+    padding: 12px 18px;
+    font-size: 1em;
+    outline: none; /* Elimina el contorno azul al hacer clic */
+    transition: border-color 0.3s ease; /* Transición suave para el borde */
+}
+
+#user-input:focus {
+    border-color: #007bff; /* Borde azul al enfocar */
+}
+
+#send-button {
+    background-color: #007bff; /* Azul para el botón de envío */
+    color: #fff;
+    border: none;
+    border-radius: 50%; /* Completamente redondo */
+    width: 48px; /* Tamaño del botón */
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em; /* Tamaño del icono */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    margin-left: 12px;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para el botón */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+}
+
+#send-button:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
+}
+
+#send-button:active {
+    transform: translateY(0); /* Efecto de click */
+}
+
+/* Media Queries para adaptabilidad en pantallas más pequeñas */
+@media (max-width: 600px) {
+    .chat-container {
+        height: 100vh; /* Ocupa toda la altura en móviles */
+        max-width: 100%; /* Ocupa todo el ancho en móviles */
+        border-radius: 0; /* Sin bordes redondeados en los extremos de la pantalla */
+    }
+
+    body {
+        align-items: stretch; /* Estira el contenedor para ocupar toda la altura */
+        justify-content: stretch;
+    }
+}

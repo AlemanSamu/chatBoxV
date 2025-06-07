@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Nova Salud</title>
+    <!-- Enlace a tu archivo CSS para los estilos del chatbox -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Enlace a Font Awesome para los iconos (como el de enviar mensaje) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="bot-info">
+                <div class="bot-avatar">NS</div>
+                <div class="bot-details">
+                    <div class="bot-name">Nova Salud</div>
+                    <div class="bot-role">Asistente de Comunicación</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+            <!-- Los mensajes del chat se añadirán aquí dinámicamente con JavaScript -->
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="user-input" placeholder="Escribe un mensaje...">
+            <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Enlace a tu archivo JavaScript para la lógica del chat -->
+    <script src="script.js"></script>
+</body>
+</html>
