@@ -1,152 +1,176 @@
-/* Importa la fuente Inter de Google Fonts para un diseño moderno */
+/* Importa la fuente Inter de Google Fonts para un diseño moderno y legible */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* Estilos generales del cuerpo de la página */
 body {
-    font-family: 'Inter', sans-serif; /* Aplica la fuente Inter */
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Altura mínima de la ventana para centrar */
-    background-color: #f0f2f5; /* Color de fondo suave */
-    color: #333; /* Color de texto general */
+    font-family: 'Inter', sans-serif; /* Aplica la fuente Inter al texto */
+    margin: 0; /* Elimina el margen predeterminado del cuerpo */
+    display: flex; /* Utiliza flexbox para centrar el contenedor del chat */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la ventana */
+    background-color: #f8f8f8; /* Un gris muy claro, casi blanco, como fondo minimalista */
+    color: #333; /* Color de texto general oscuro para buena legibilidad */
+    overflow: hidden; /* Evita barras de desplazamiento en el body */
 }
 
+/* Contenedor principal del chatbox */
 .chat-container {
-    width: 100%;
-    max-width: 400px; /* Ancho máximo similar a una aplicación móvil */
-    height: 90vh; /* Altura para una experiencia de chat inmersiva */
-    background-color: #fff;
-    border-radius: 15px; /* Bordes redondeados para todo el contenedor */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 370px; /* Ancho máximo un poco más compacto para un look elegante */
+    height: 90vh; /* Altura para una experiencia de chat inmersiva, simulando un móvil */
+    background-color: #ffffff; /* Fondo blanco puro para el chatbox */
+    border-radius: 8px; /* Bordes sutilmente redondeados para un diseño más pulcro y nítido */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra suave y discreta */
     display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Asegura que el contenido no se salga */
+    flex-direction: column; /* Organiza los elementos verticalmente */
+    overflow: hidden; /* Asegura que el contenido interno no se desborde de los bordes redondeados */
+    transition: all 0.3s ease; /* Transición suave para cualquier cambio de tamaño o estado */
 }
 
+/* Encabezado del chatbox */
 .chat-header {
-    background-color: #f7f9fa; /* Fondo del encabezado, un gris muy claro */
-    padding: 15px 20px; /* Espaciado interno */
-    border-bottom: 1px solid #eee; /* Línea separadora */
+    background-color: #ffffff; /* Fondo blanco puro */
+    padding: 16px 20px; /* Espaciado interno generoso */
+    border-bottom: 1px solid #e0e0e0; /* Línea separadora sutil y moderna */
     display: flex;
     align-items: center;
+    color: #333; /* Texto oscuro en el encabezado */
 }
 
+/* Información del bot (avatar, nombre, rol) */
 .bot-info {
     display: flex;
     align-items: center;
 }
 
+/* Avatar del bot (círculo con iniciales EU) */
 .bot-avatar {
-    width: 45px; /* Tamaño del avatar */
+    width: 45px; /* Tamaño del avatar refinado */
     height: 45px;
-    background-color: #007bff; /* Azul vibrante para el círculo NS */
+    background-color: #333333; /* Negro/gris oscuro para el acento de la marca, como el logo ZUREA */
     color: #fff;
     border-radius: 50%; /* Completamente redondo */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 600; /* Negrita para el texto NS */
+    font-weight: 600; /* Negrita para las iniciales */
     font-size: 1.3em;
-    margin-right: 12px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Pequeña sombra para el avatar */
+    margin-right: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil y elegante para el avatar */
 }
 
+/* Nombre de la tienda */
 .bot-name {
-    font-weight: 600; /* Negrita para "Nova Salud" */
-    color: #333;
+    font-weight: 500; /* Menos negrita, más sutil */
+    color: #333; /* Color oscuro para el nombre en el encabezado */
     font-size: 1.1em;
+    letter-spacing: 0.3px; /* Ligero espaciado entre letras */
 }
 
+/* Rol del asistente */
 .bot-role {
-    font-size: 0.85em;
-    color: #666;
-    margin-top: 2px;
+    font-size: 0.8em;
+    color: #777; /* Color gris suave para un contraste sutil */
+    margin-top: 2px; /* Espacio superior */
 }
 
+/* Área de visualización de mensajes */
 .chat-messages {
     flex-grow: 1; /* Permite que el área de mensajes ocupe el espacio restante */
-    padding: 15px;
-    overflow-y: auto; /* Habilita el scroll vertical */
-    background-color: #e5ddd5; /* Color de fondo tipo WhatsApp */
-    display: flex; /* Usamos flexbox para alinear los mensajes */
+    padding: 15px 20px; /* Padding ajustado para más espacio en los lados */
+    overflow-y: auto; /* Habilita el scroll vertical cuando hay muchos mensajes */
+    background-color: #fcfcfc; /* Fondo muy claro, casi blanco, para la conversación */
+    display: flex;
     flex-direction: column; /* Apila los mensajes verticalmente */
+    gap: 10px; /* Más espacio entre las burbujas de mensaje */
 }
 
+/* Estilo base para todas las burbujas de mensaje */
 .message-bubble {
-    padding: 10px 14px;
-    border-radius: 18px; /* Bordes redondeados para las burbujas */
+    padding: 12px 18px; /* Más padding para una sensación más espaciosa */
+    border-radius: 18px; /* Bordes redondeados */
     max-width: 85%; /* Ancho máximo de la burbuja */
-    margin-bottom: 8px; /* Espacio entre burbujas */
     position: relative;
-    word-wrap: break-word; /* Rompe palabras largas para evitar desbordamiento */
-    font-size: 0.95em;
-    line-height: 1.4;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); /* Sombra sutil para las burbujas */
+    word-wrap: break-word; /* Asegura que el texto largo se ajuste dentro de la burbuja */
+    font-size: 0.9em; /* Fuente ligeramente más pequeña */
+    line-height: 1.5; /* Altura de línea cómoda para la lectura */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03); /* Sombra muy sutil, casi imperceptible */
+    transition: all 0.2s ease; /* Transición suave para efectos futuros */
 }
 
-/* Estilo para los mensajes del bot (gris claro, alineado a la izquierda) */
+/* Estilo para los mensajes del bot (izquierda, gris muy claro) */
 .bot-message {
-    background-color: #e0e0e0;
+    background-color: #eef1f4; /* Un gris muy claro, casi blanco-azulado, para sutil distinción */
+    color: #4a4a4a; /* Texto gris oscuro para los mensajes del bot */
     align-self: flex-start; /* Alineado a la izquierda */
+    border-bottom-left-radius: 4px; /* Un lado de la burbuja ligeramente menos redondeado para la cola */
 }
 
+/* Cola de la burbuja del bot */
 .bot-message::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -7px; /* Posiciona la cola en la esquina superior izquierda */
+    left: -8px; /* Posiciona la cola */
     width: 0;
     height: 0;
-    border-top: 8px solid transparent;
-    border-right: 8px solid #e0e0e0; /* Color de la burbuja */
-    border-bottom: 8px solid transparent;
+    border-top: 10px solid transparent; /* Ajuste del tamaño de la cola */
+    border-right: 10px solid #eef1f4; /* Color de la burbuja */
+    border-bottom: 10px solid transparent;
 }
 
-/* Estilo para los mensajes del usuario (verde claro, alineado a la derecha) */
+/* Estilo para los mensajes del usuario (derecha, gris claro, texto oscuro) */
 .user-message {
-    background-color: #dcf8c6; /* Un verde claro similar a WhatsApp */
+    background-color: #f0f0f0; /* Un gris muy claro, similar a la imagen ZUREA */
+    color: #4a4a4a; /* Texto gris oscuro para los mensajes del usuario */
     align-self: flex-end; /* Alineado a la derecha */
     margin-left: auto; /* Empuja el mensaje a la derecha */
+    border-bottom-right-radius: 4px; /* Un lado de la burbuja ligeramente menos redondeado para la cola */
 }
 
-.user-message::after { /* Usamos ::after para la cola del mensaje de usuario */
+/* Cola de la burbuja del usuario */
+.user-message::after {
     content: '';
     position: absolute;
     top: 0;
-    right: -7px; /* Posiciona la cola en la esquina superior derecha */
+    right: -8px; /* Posiciona la cola */
     width: 0;
     height: 0;
-    border-top: 8px solid transparent;
-    border-left: 8px solid #dcf8c6; /* Color de la burbuja */
-    border-bottom: 8px solid transparent;
+    border-top: 10px solid transparent; /* Ajuste del tamaño de la cola */
+    border-left: 10px solid #f0f0f0; /* Color de la burbuja */
+    border-bottom: 10px solid transparent;
 }
 
-
+/* Área de entrada de texto y botón de envío */
 .chat-input-area {
     display: flex;
-    padding: 15px;
-    border-top: 1px solid #eee;
-    background-color: #f7f9fa; /* Fondo del área de input */
-    align-items: center; /* Alinea verticalmente el input y el botón */
+    padding: 15px 20px; /* Espaciado interno */
+    border-top: 1px solid #f0f0f0; /* Línea separadora muy suave */
+    background-color: #ffffff; /* Fondo blanco para el área de input */
+    align-items: center;
 }
 
+/* Campo de entrada de texto */
 #user-input {
     flex-grow: 1; /* Permite que el input ocupe el espacio disponible */
-    border: 1px solid #ddd; /* Borde suave */
-    border-radius: 25px; /* Más redondeado para parecerse a la imagen */
+    border: 1px solid #e0e0e0; /* Borde suave y neutro */
+    border-radius: 24px; /* Muy redondeado para un look moderno y suave */
     padding: 12px 18px;
-    font-size: 1em;
-    outline: none; /* Elimina el contorno azul al hacer clic */
-    transition: border-color 0.3s ease; /* Transición suave para el borde */
+    font-size: 0.95em;
+    outline: none; /* Elimina el contorno azul predeterminado al hacer clic */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves al interactuar */
+    background-color: #fdfdfd; /* Fondo casi blanco para el input */
 }
 
 #user-input:focus {
-    border-color: #007bff; /* Borde azul al enfocar */
+    border-color: #333333; /* Borde de enfoque con el color oscuro principal */
+    box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.05); /* Sombra de enfoque muy sutil */
 }
 
+/* Botón de envío */
 #send-button {
-    background-color: #007bff; /* Azul para el botón de envío */
+    background-color: #333333; /* Color oscuro principal para el botón de envío */
     color: #fff;
     border: none;
     border-radius: 50%; /* Completamente redondo */
@@ -156,32 +180,33 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 1.3em; /* Tamaño del icono */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    margin-left: 12px;
+    cursor: pointer;
+    margin-left: 15px;
     outline: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para el botón */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra elegante para el botón */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transiciones suaves */
 }
 
 #send-button:hover {
-    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
-    transform: translateY(-2px); /* Pequeño efecto de elevación */
+    background-color: #000000; /* Negro puro al pasar el ratón */
+    transform: translateY(-1px); /* Pequeño efecto de elevación sutil */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra ligeramente más intensa al pasar el ratón */
 }
 
 #send-button:active {
     transform: translateY(0); /* Efecto de click */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Sombra reducida al hacer click */
 }
 
-/* Media Queries para adaptabilidad en pantallas más pequeñas */
+/* Media Queries para adaptabilidad en pantallas más pequeñas (móviles) */
 @media (max-width: 600px) {
+    body {
+        padding: 0; /* Elimina cualquier padding en el cuerpo */
+    }
     .chat-container {
         height: 100vh; /* Ocupa toda la altura en móviles */
         max-width: 100%; /* Ocupa todo el ancho en móviles */
-        border-radius: 0; /* Sin bordes redondeados en los extremos de la pantalla */
-    }
-
-    body {
-        align-items: stretch; /* Estira el contenedor para ocupar toda la altura */
-        justify-content: stretch;
+        border-radius: 0; /* Elimina los bordes redondeados para ocupar toda la pantalla */
+        box-shadow: none; /* Elimina la sombra en móviles para un look de aplicación completa */
     }
 }
